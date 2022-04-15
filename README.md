@@ -1,4 +1,4 @@
-<h2>MovieStoreAPI - .NET Core & Entity Framework & PostgreSQL on Onion Architecture.</h2> <br>
+<h2>MovieStoreAPI - .NET Core & Entity Framework & PostgreSQL on Onion Architecture</h2> <br>
 
 <h2>Learning Resources:</h2><br>
 <ul>
