@@ -11,7 +11,7 @@ namespace MovieStoreAPI.Domain.Entities
     {
         public string MovieName { get; set; }
         public string Duration { get; set; }
-        public long Price { get; set; }
+        public double Price { get; set; }
         public ICollection<Order> Orders { get; set; }
 
     }
