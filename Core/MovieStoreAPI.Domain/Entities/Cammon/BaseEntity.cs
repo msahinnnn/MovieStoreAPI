@@ -10,5 +10,6 @@ namespace MovieStoreAPI.Domain.Entities.Cammon
     {
         public Guid Id { get; set; }
         public DateTime CreateDate { get; set; }
+        public DateTime UpdatedDateTime { get; set; }
     }
 }

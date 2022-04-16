@@ -23,13 +23,12 @@ namespace MovieStoreAPI.API.Controllers
         [HttpGet]
         public async Task Get()
         {
-            await _movieWriteRepository.AddRangeAsync(new()
-            {
-                new() { Id = Guid.NewGuid(), MovieName = "LOTR 1", Duration = "3.30", CreateDate = DateTime.UtcNow, Price = 4.99 },
-                new() { Id = Guid.NewGuid(), MovieName = "LOTR 2", Duration = "4.30", CreateDate = DateTime.UtcNow, Price = 5.99 },
-                new() { Id = Guid.NewGuid(), MovieName = "LOTR 3", Duration = "5.30", CreateDate = DateTime.UtcNow, Price = 6.99 }
-            });
-            var count = await _movieWriteRepository.SaveAsync();
+            
+            _movieWriteRepository.AddAsync(
+                new (){ MovieName = "Matrix 1", Duration = 3.20F, Price = 2.99F, CreateDate = DateTime.UtcNow } );
+            _movieWriteRepository.SaveAsync();
+
+
         }
 
 

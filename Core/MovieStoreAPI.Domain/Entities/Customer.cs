@@ -10,6 +10,7 @@ namespace MovieStoreAPI.Domain.Entities
     public class Customer : BaseEntity
     {
         public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
         public ICollection<Order> Orders { get; set; }
 
     }
