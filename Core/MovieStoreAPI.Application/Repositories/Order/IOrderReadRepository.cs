@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MovieStoreAPI.Application.Repositories
 {
-    public interface IOrderReadRepository : IRepository<Order>
+    public interface IOrderReadRepository : IReadRepository<Order>
     {
     }
 }

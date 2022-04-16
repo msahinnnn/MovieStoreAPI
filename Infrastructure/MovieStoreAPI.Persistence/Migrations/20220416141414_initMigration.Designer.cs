@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MovieStoreAPI.Persistence.Migrations
 {
     [DbContext(typeof(MovieStoreAPIDbContext))]
-    [Migration("20220416115613_mig_1")]
-    partial class mig_1
+    [Migration("20220416141414_initMigration")]
+    partial class initMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,10 +48,6 @@ namespace MovieStoreAPI.Persistence.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("CustomerEmail")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -73,9 +69,8 @@ namespace MovieStoreAPI.Persistence.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Duration")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<float>("Duration")
+                        .HasColumnType("real");
 
                     b.Property<string>("MovieName")
                         .IsRequired()
@@ -105,10 +100,7 @@ namespace MovieStoreAPI.Persistence.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("CustomerId1")
+                    b.Property<Guid>("CustomerId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Description")
@@ -120,7 +112,7 @@ namespace MovieStoreAPI.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId1");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -144,7 +136,7 @@ namespace MovieStoreAPI.Persistence.Migrations
                 {
                     b.HasOne("MovieStoreAPI.Domain.Entities.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId1")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
